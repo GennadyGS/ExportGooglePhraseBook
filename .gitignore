@@ -1,0 +1,6 @@
+.vscode
+/Output
+/logs
+launchSettings.json
+credential.json
+client_secret.json

@@ -1,0 +1,12 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+  </Configurations>
+  <Folder Name="/src/">
+    <Project Path="src/Common/Common.csproj" />
+    <Project Path="src/ExportGooglePhraseBookExtension/ExportGooglePhraseBookExtension.csproj" />
+    <Project Path="src/ExportGooglePhraseBookFromSpreadSheet/ExportGooglePhraseBookFromSpreadSheet.csproj" />
+    <Project Path="src/GoogleDriveFileControl/GoogleDriveFileControl.csproj" />
+    <Project Path="src/Translation.Models/Translation.Models.csproj" />
+  </Folder>
+</Solution>

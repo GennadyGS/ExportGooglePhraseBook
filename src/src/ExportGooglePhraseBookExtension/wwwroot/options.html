@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ExportGooglePhraseBook - Options</title>
+  <style>
+    body { font-family: sans-serif; margin: 1rem; }
+    label { display:block; margin-top:1rem; }
+    input[type=text] { width:100%; padding:0.25rem; }
+    .status { margin-top:0.5rem; font-size:0.9rem; }
+    code { background:#eee; padding:2px 4px; }
+  </style>
+</head>
+<body>
+  <h1>Export Tool Configuration</h1>
+  <p>Configure the URL template used to open the export tool. Use placeholder <code>{sheetId}</code>.</p>
+  <label>
+    Export Tool URL Template:
+    <input id="template" type="text" placeholder="exportGooglePhraseBook://open?spreadSheetId={sheetId}" />
+  </label>
+  <button id="save">Save</button>
+  <div class="status" id="status"></div>
+  <script src="options.js"></script>
+</body>
+</html>

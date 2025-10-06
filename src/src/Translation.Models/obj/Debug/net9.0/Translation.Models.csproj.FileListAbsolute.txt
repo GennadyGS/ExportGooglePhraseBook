@@ -1,0 +1,12 @@
+C:\Source\Private\SyncAnkiWithGooglePhraseBook\src\src\Translation.Models\bin\Debug\net9.0\Translation.Models.deps.json
+C:\Source\Private\SyncAnkiWithGooglePhraseBook\src\src\Translation.Models\bin\Debug\net9.0\Translation.Models.dll
+C:\Source\Private\SyncAnkiWithGooglePhraseBook\src\src\Translation.Models\bin\Debug\net9.0\Translation.Models.pdb
+C:\Source\Private\SyncAnkiWithGooglePhraseBook\src\src\Translation.Models\obj\Debug\net9.0\Translation.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Source\Private\SyncAnkiWithGooglePhraseBook\src\src\Translation.Models\obj\Debug\net9.0\Translation.Models.AssemblyInfoInputs.cache
+C:\Source\Private\SyncAnkiWithGooglePhraseBook\src\src\Translation.Models\obj\Debug\net9.0\Translation.Models.AssemblyInfo.cs
+C:\Source\Private\SyncAnkiWithGooglePhraseBook\src\src\Translation.Models\obj\Debug\net9.0\Translation.Models.csproj.CoreCompileInputs.cache
+C:\Source\Private\SyncAnkiWithGooglePhraseBook\src\src\Translation.Models\obj\Debug\net9.0\Translation.Models.sourcelink.json
+C:\Source\Private\SyncAnkiWithGooglePhraseBook\src\src\Translation.Models\obj\Debug\net9.0\Translation.Models.dll
+C:\Source\Private\SyncAnkiWithGooglePhraseBook\src\src\Translation.Models\obj\Debug\net9.0\refint\Translation.Models.dll
+C:\Source\Private\SyncAnkiWithGooglePhraseBook\src\src\Translation.Models\obj\Debug\net9.0\Translation.Models.pdb
+C:\Source\Private\SyncAnkiWithGooglePhraseBook\src\src\Translation.Models\obj\Debug\net9.0\ref\Translation.Models.dll
