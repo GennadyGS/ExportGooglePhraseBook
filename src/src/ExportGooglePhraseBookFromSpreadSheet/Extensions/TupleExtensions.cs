@@ -2,10 +2,6 @@
 
 internal static class TupleExtensions
 {
-    public static (TResult fst, TResult snd) Map<TSource, TResult>(
-        this (TSource fst, TSource snd) source, Func<TSource, TResult> mapper) =>
-        (mapper(source.fst), mapper(source.snd));
-
     [System.Diagnostics.CodeAnalysis.SuppressMessage(
         "Major Code Smell",
         "S2436:Types and methods should not have too many generic parameters",
