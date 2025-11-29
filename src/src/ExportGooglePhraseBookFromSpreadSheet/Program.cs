@@ -12,6 +12,10 @@ using Translation.Models;
 
 namespace ExportGooglePhraseBookFromSpreadSheet;
 
+[System.Diagnostics.CodeAnalysis.SuppressMessage(
+    "Major Code Smell",
+    "S1200:Classes should not be coupled to too many other classes",
+    Justification = "Pending")]
 public static class Program
 {
     private const string CredentialFileName = "credential.json";
@@ -102,7 +106,7 @@ public static class Program
         }
 
         return new ParseResult<PhraseTranslation>.Success(
-            new PhraseTranslation
+            new()
             {
                 Source = new()
                 {
@@ -135,7 +139,7 @@ public static class Program
         {
             HttpClientInitializer = LoadCredential(),
         };
-        return new SheetsService(initializer);
+        return new(initializer);
     }
 
     private static GoogleCredential LoadCredential()
@@ -143,6 +147,8 @@ public static class Program
         var scope = SheetsService.Scope.SpreadsheetsReadonly;
         var credentialFullFilePath = Path.GetFullPath(CredentialFileName, AppContext.BaseDirectory);
         using var stream = new FileStream(credentialFullFilePath, FileMode.Open, FileAccess.Read);
-        return GoogleCredential.FromStream(stream).CreateScoped(scope);
+        return CredentialFactory.FromStream<ServiceAccountCredential>(stream)
+            .ToGoogleCredential()
+            .CreateScoped(scope);
     }
 }

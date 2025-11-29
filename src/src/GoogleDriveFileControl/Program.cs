@@ -101,8 +101,8 @@ internal static class Program
             .AuthorizeAsync(secretsStream.Secrets, Scopes, "user", CancellationToken.None);
 
         var assemblyFullName = typeof(Program).Assembly.GetName().Name;
-        return new DriveService(
-            new BaseClientService.Initializer
+        return new(
+            new()
             {
                 HttpClientInitializer = credential,
                 ApplicationName = assemblyFullName,

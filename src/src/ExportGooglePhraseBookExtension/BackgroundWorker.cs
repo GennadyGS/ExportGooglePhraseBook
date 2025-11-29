@@ -80,7 +80,7 @@ public partial class BackgroundWorker(IJSRuntime jsRuntime) : BackgroundWorkerBa
     {
         var template = _exportToolUrlTemplate ?? DefaultExportToolUrlTemplate;
         var urlString = template.Replace("{sheetId}", sheetId, StringComparison.OrdinalIgnoreCase);
-        return new Uri(urlString);
+        return new(urlString);
     }
 
     private async Task<string?> GetExportToolUrlTemplateAsync()
@@ -108,7 +108,7 @@ public partial class BackgroundWorker(IJSRuntime jsRuntime) : BackgroundWorkerBa
         if (tabState.State < State.PhraseBook && url.StartsWith(GoogleTranslateUrl))
         {
             var newTab = await ClickButtonAndGetNewTabAsync(tabState.Tab, ExportButtonSelector);
-            return new TabState(State.PhraseBook, newTab);
+            return new(State.PhraseBook, newTab);
         }
 
         if (tabState.State < State.ExportConfirmation && url.Equals(ExportConfirmationUrl))
@@ -128,7 +128,7 @@ public partial class BackgroundWorker(IJSRuntime jsRuntime) : BackgroundWorkerBa
 
         if (tabState.State < State.OriginalPage)
         {
-            await NavigateToUrlAsync(tabId, new Uri(GoogleTranslateUrl));
+            await NavigateToUrlAsync(tabId, new(GoogleTranslateUrl));
             return tabState with { State = State.OriginalPage };
         }
 
