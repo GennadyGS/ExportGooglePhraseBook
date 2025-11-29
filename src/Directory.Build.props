@@ -6,10 +6,10 @@
     <PackageProjectUrl>https://github.com/GennadyGS/SyncAnkiWithGooglePhraseBook</PackageProjectUrl>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <DebugType>Portable</DebugType>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <LangVersion>13.0</LangVersion>
+    <LangVersion>14.0</LangVersion>
     <IsPackable>false</IsPackable>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <NoWarn Condition="'$(Configuration)'!='Release'">$(NoWarn);NU5104</NoWarn>

@@ -1,6 +1,6 @@
 ﻿namespace ExportGooglePhraseBookFromSpreadSheet.Extensions;
 
-public static class TupleExtensions
+internal static class TupleExtensions
 {
     public static (TResult fst, TResult snd) Map<TSource, TResult>(
         this (TSource fst, TSource snd) source, Func<TSource, TResult> mapper) =>

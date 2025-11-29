@@ -114,7 +114,7 @@ public partial class BackgroundWorker(IJSRuntime jsRuntime) : BackgroundWorkerBa
         if (tabState.State < State.ExportConfirmation && url.Equals(ExportConfirmationUrl))
         {
             await ClickButtonBySelectorAsync(tabState.Tab, ConfirmationButtonSelector);
-            return new TabState(State.ExportConfirmation, tabState.Tab);
+            return tabState with { State = State.ExportConfirmation };
         }
 
         var match = GoogleSheetUrlRegex.Match(url);
@@ -123,13 +123,13 @@ public partial class BackgroundWorker(IJSRuntime jsRuntime) : BackgroundWorkerBa
             var sheetId = match.Groups[1].Value;
             var redirectUrl = GetExportToolUrl(sheetId);
             await NavigateToUrlAsync(tabId, redirectUrl);
-            return new TabState(State.StyleSheet, tabState.Tab);
+            return tabState with { State = State.StyleSheet };
         }
 
         if (tabState.State < State.OriginalPage)
         {
             await NavigateToUrlAsync(tabId, new Uri(GoogleTranslateUrl));
-            return new TabState(State.OriginalPage, tabState.Tab);
+            return tabState with { State = State.OriginalPage };
         }
 
         await LogInfoAsync("Cannot continue flow from current url");
@@ -181,7 +181,7 @@ public partial class BackgroundWorker(IJSRuntime jsRuntime) : BackgroundWorkerBa
             await _jsRuntime.InvokeVoidAsync("waitForTabToLoad", tabId);
             await LogInfoAsync("Page finished loading.");
             var updatedTab = await WebExtensions.Tabs.Get(tabId);
-            return new TabState(state.State, updatedTab);
+            return state with { Tab = updatedTab };
         }
         catch (JSException e)
         {

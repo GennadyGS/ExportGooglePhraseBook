@@ -13,7 +13,7 @@ internal static class ParseResultsExtensions
                 (acc, r) => r switch
                 {
                     ParseResult<T>.Success success =>
-                        (acc.successes.Append<T>(success.Result), acc.errors),
+                        (acc.successes.Append(success.Result), acc.errors),
                     ParseResult<T>.Error error =>
                         (acc.successes, acc.errors.Append(error.Message)),
                     _ => throw new UnreachableException("Impossible case."),
