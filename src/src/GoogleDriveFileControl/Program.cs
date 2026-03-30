@@ -2,7 +2,6 @@
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Drive.v3;
 using Google.Apis.Drive.v3.Data;
-using Google.Apis.Services;
 using GoogleDriveFileControl.Models;
 
 namespace GoogleDriveFileControl;
@@ -54,9 +53,9 @@ internal static class Program
                 await DeleteFileAsync(opt.FileId);
                 break;
             default:
-            {
-                throw new InvalidOperationException("Invalid action. Use 'share' or 'delete'.");
-            }
+                {
+                    throw new InvalidOperationException("Invalid action. Use 'share' or 'delete'.");
+                }
         }
     }
 
@@ -126,15 +125,8 @@ internal static class Program
 
     private static async Task DeleteFileAsync(DriveService service, string fileId)
     {
-        try
-        {
-            var request = service.Files.Delete(fileId);
-            await request.ExecuteAsync();
-        }
-        catch (Exception e)
-        {
-            throw new AggregateException($"Error deleting file (ID: {fileId})", e);
-        }
+        var request = service.Files.Update(new() { Trashed = true }, fileId);
+        await request.ExecuteAsync();
     }
 
     private static string GetFullFilePath(string filePath)
