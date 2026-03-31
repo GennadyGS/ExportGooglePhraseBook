@@ -10,7 +10,16 @@
         }
     }
 
-    return true; // important: enables async response});
+    if (message.command === "getInputValue") {
+        try {
+            var input = document.querySelector(message.args.selector);
+            sendResponse(input ? input.value : null);
+        } catch (e) {
+            sendResponse(null);
+        }
+    }
+
+    return true;
 });
 
 console.log("content script loaded");

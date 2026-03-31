@@ -18,6 +18,11 @@ public partial class BackgroundWorker(IJSRuntime jsRuntime) : BackgroundWorkerBa
 
     private const string ConfirmationButtonSelector = "#confirmActionButton";
 
+    private const string SavedTranslationsSheetTitle = "Saved translations";
+
+    private const string GoogleSheetTitleSelector =
+        "#docs-title-widget > div.docs-title-input-wrapper > input";
+
     private const string DefaultExportToolUrlTemplate =
         "exportGooglePhraseBook://open?spreadSheetId={sheetId}";
 
@@ -118,7 +123,9 @@ public partial class BackgroundWorker(IJSRuntime jsRuntime) : BackgroundWorkerBa
         }
 
         var match = GoogleSheetUrlRegex.Match(url);
-        if (tabState.State < State.StyleSheet && match.Success)
+        if (tabState.State < State.StyleSheet &&
+            match.Success &&
+            await GetGoogleSheetTitleAsync(tabId) == SavedTranslationsSheetTitle)
         {
             var sheetId = match.Groups[1].Value;
             var redirectUrl = GetExportToolUrl(sheetId);
@@ -135,6 +142,9 @@ public partial class BackgroundWorker(IJSRuntime jsRuntime) : BackgroundWorkerBa
         await LogInfoAsync("Cannot continue flow from current url");
         return tabState;
     }
+
+    private async Task<string?> GetGoogleSheetTitleAsync(int tabId) =>
+        await GetTabInputValueAsync(tabId, GoogleSheetTitleSelector);
 
     private async Task NavigateToUrlAsync(int tabId, Uri url)
     {
@@ -197,6 +207,12 @@ public partial class BackgroundWorker(IJSRuntime jsRuntime) : BackgroundWorkerBa
     private async Task SendMessageAsync(int tabId, string command, object args)
     {
         await _jsRuntime.InvokeVoidAsync("chrome.tabs.sendMessage", tabId, new { command, args });
+    }
+
+    private async Task<string?> GetTabInputValueAsync(int tabId, string selector)
+    {
+        return await _jsRuntime.InvokeAsync<string?>(
+            "chrome.tabs.sendMessage", tabId, new { command = "getInputValue", args = new { selector } });
     }
 
     private async Task LogInfoAsync(string message)
