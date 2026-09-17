@@ -15,4 +15,3 @@ function Invoke-ExternalCommand {
         throw "Command '$Command' failed with exit code $LastExitCode"
     }
 }
-
