@@ -6,7 +6,7 @@
     <PackageProjectUrl>https://github.com/GennadyGS/SyncAnkiWithGooglePhraseBook</PackageProjectUrl>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <DebugType>Portable</DebugType>
-    <TargetFramework>net11.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>

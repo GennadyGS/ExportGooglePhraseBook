@@ -8,7 +8,7 @@
 - [eng/analyzers](eng/analyzers): shared analyzer rules and MSBuild targets.
 - [Directory.Build.props](Directory.Build.props) and [Directory.Packages.props](Directory.Packages.props): repository-wide build settings and centrally managed package versions.
 
-Build from the repository root with an SDK supporting the target framework:
+Install .NET SDK 10.0.404 or a newer .NET 10 SDK. [global.json](global.json) keeps builds on .NET 10 even when .NET 11 is installed. Build from the repository root:
 
 ```powershell
 dotnet build .\ExportGooglePhraseBook.slnx --configuration Release
