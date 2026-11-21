@@ -4,12 +4,12 @@ param (
 )
 
 $ErrorActionPreference = "Stop"
-. $PSScriptRoot/Common.ps1
+. (Join-Path $PSScriptRoot 'Common.ps1')
 
 $exportGooglePhraseBookFromSpreadSheetAppPath =
-    "$appPathRoot/ExportGooglePhraseBookFromSpreadSheet"
+    Join-Path $appPathRoot 'ExportGooglePhraseBookFromSpreadSheet'
 
-$credentialFilePath = "$exportGooglePhraseBookFromSpreadSheetAppPath/credential.json"
+$credentialFilePath = Join-Path $exportGooglePhraseBookFromSpreadSheetAppPath 'credential.json'
 $credential = Get-Content $credentialFilePath -Raw | ConvertFrom-Json
 
 $outputPath = Split-Path $outputFilePath -Parent

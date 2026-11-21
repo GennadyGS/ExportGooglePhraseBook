@@ -14,5 +14,5 @@
     <NoWarn Condition="'$(Configuration)'!='Release'">$(NoWarn);NU5104</NoWarn>
   </PropertyGroup>
 
-  <Import Project="$(MSBuildThisFileDirectory)/codeAnalysis/CodeAnalysis.targets"/>
+  <Import Project="$(MSBuildThisFileDirectory)eng\analyzers\CodeAnalysis.targets"/>
 </Project>

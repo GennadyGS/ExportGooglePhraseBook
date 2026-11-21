@@ -3,7 +3,7 @@ param (
 )
 
 $ErrorActionPreference = "Stop"
-. $PSScriptRoot/Common.ps1
+. (Join-Path $PSScriptRoot 'Common.ps1')
 
 Invoke-ExternalCommand dotnet run "--project" $googleDriveFileControlAppPath `
     "--no-build" `

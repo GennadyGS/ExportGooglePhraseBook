@@ -1,5 +1,5 @@
-$appPathRoot = "$PSScriptRoot/src/src"
-$googleDriveFileControlAppPath = "$appPathRoot/GoogleDriveFileControl"
+$appPathRoot = Join-Path $PSScriptRoot '..\src'
+$googleDriveFileControlAppPath = Join-Path $appPathRoot 'GoogleDriveFileControl'
 
 function Invoke-ExternalCommand {
     param(

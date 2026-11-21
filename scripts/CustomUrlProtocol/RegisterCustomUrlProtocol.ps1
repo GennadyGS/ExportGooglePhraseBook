@@ -1,7 +1,7 @@
 param (
     $name = "exportGooglePhrasebook",
     $description = "Export Google Phrasebook",
-    $scriptPath = "$PSScriptRoot/../ExportGooglePhrasebookCustomUrlHandler.ps1"
+    $scriptPath = (Join-Path $PSScriptRoot '..\ExportGooglePhrasebookCustomUrlHandler.ps1')
 )
 
 $url = "pwsh.exe -WindowStyle Minimized `"$scriptPath`" `"%1`""
