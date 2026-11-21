@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <RuleSet Name="Production Assembly Rules" ToolsVersion="15.0">
+  <Rules AnalyzerId="Microsoft.AspNetCore.Components.Analyzers" RuleNamespace="Microsoft.AspNetCore.Components.Analyzers">
+    <Rule Id="BL0016" Action="None"/>
+  </Rules>
   <Rules AnalyzerId="SonarAnalyzer.CSharp" RuleNamespace="SonarAnalyzer.CSharp">
     <Rule Id="S100" Action="Info"/>
     <Rule Id="S1006" Action="Warning"/>
@@ -380,6 +383,7 @@
     <Rule Id="S6422" Action="Warning"/>
     <Rule Id="S6423" Action="None"/>
     <Rule Id="S6424" Action="Warning"/>
+    <Rule Id="S6444" Action="None"/>
     <Rule Id="S6507" Action="None"/>
     <Rule Id="S6513" Action="None"/>
     <Rule Id="S818" Action="Info"/>
