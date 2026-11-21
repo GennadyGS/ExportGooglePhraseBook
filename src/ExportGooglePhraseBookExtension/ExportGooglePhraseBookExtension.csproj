@@ -1,4 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+  <PropertyGroup>
+    <WasmEnableHotReload>false</WasmEnableHotReload>
+  </PropertyGroup>
   <ItemGroup>
     <Content Remove="wwwroot\config\export-config.json" />
     <Content Remove="wwwroot\options.html" />

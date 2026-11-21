@@ -16,6 +16,19 @@ dotnet build .\ExportGooglePhraseBook.slnx --configuration Release
 
 The browser extension output is generated under `src\ExportGooglePhraseBookExtension\bin\Release\<target-framework>\browserextension`. Build output, local configuration, and credentials are ignored by Git.
 
+### Browser extension troubleshooting
+
+WebAssembly Hot Reload is disabled in the [extension project](src/ExportGooglePhraseBookExtension/ExportGooglePhraseBookExtension.csproj). Its Manifest V3 background service worker has no DOM, and the Blazor browser-extension DOM proxy incorrectly handles the Hot Reload module's browser-refresh script lookup, logging `Unexpected selector script[src*='aspnetcore-browser-refresh']`.
+
+Clean and rebuild the extension once to remove stale Hot Reload artifacts:
+
+```powershell
+dotnet clean .\src\ExportGooglePhraseBookExtension\ExportGooglePhraseBookExtension.csproj --configuration Debug
+dotnet build .\src\ExportGooglePhraseBookExtension\ExportGooglePhraseBookExtension.csproj --configuration Debug
+```
+
+Reload the unpacked extension from the matching `browserextension` output directory in your browser's extension management page and clear the previously recorded errors. Debug builds remain available, but applying code changes requires rebuilding and reloading the extension.
+
 ## Configuration
 
 1. Generate `credential.json` (service account key) and put it in [src/ExportGooglePhraseBookFromSpreadSheet](src/ExportGooglePhraseBookFromSpreadSheet):
